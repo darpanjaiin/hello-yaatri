@@ -430,4 +430,253 @@ html {
     overflow-wrap: break-word;
     word-wrap: break-word;
 }
+
+.demo-form {
+    display: none; /* Hidden by default */
+    text-align: left; /* Align text to the left */
+    padding: 2rem;
+    background-color: #b7b4b4; /* White background */
+    margin: 2rem auto; /* Center the form */
+    border-radius: 8px; /* Rounded corners */
+    max-width: 400px; /* Limit width */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.demo-form h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.demo-form p {
+    margin-bottom: 1rem; /* Space below the description */
+    color: var(--secondary-color);
+}
+
+.demo-form label {
+    display: block;
+    margin: 0.5rem 0 0.2rem; /* Spacing for labels */
+}
+
+.demo-form input {
+    width: 100%; /* Full width */
+    padding: 0.5rem; /* Padding inside input */
+    border: 1px solid #ccc; /* Border color */
+    border-radius: 4px; /* Rounded corners */
+    margin-bottom: 1rem; /* Space below inputs */
+}
+
+.demo-form .btn-primary {
+    margin-top: 1rem; /* Space above button */
+}
+
+/* Demo Form Section Styles */
+.demo-form-section {
+    padding: 3rem 2rem; /* Adjusted padding */
+    background-color: #ffffff; /* White background */
+    display: flex;
+    justify-content: center; /* Center the form container */
+    align-items: flex-start; /* Align items to the top */
+}
+
+.form-container {
+    max-width: 800px; /* Limit width */
+    width: 100%; /* Full width */
+    display: flex; /* Flexbox for layout */
+    gap: 3rem; /* Space between form and testimonial */
+    margin: 0 auto; /* Center the container */
+}
+
+.form-left {
+    flex: 2; /* Take more space */
+}
+
+.form-right {
+    flex: 1; /* Take available space */
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center vertically */
+    text-align: left; /* Align text to the left */
+}
+
+.form-group {
+    margin-bottom: 1.5rem; /* Increased spacing between fields */
+}
+
+.form-group input {
+    width: 100%; /* Full width */
+    padding: 0.8rem; /* Padding inside input */
+    border: 1px solid #ccc; /* Border color */
+    border-radius: 8px; /* Rounded corners */
+    margin-bottom: 1rem; /* Space below inputs */
+    transition: border-color 0.3s ease; /* Smooth transition */
+    font-family: 'Space Mono', monospace; /* Match website font */
+}
+
+.form-left p {
+    margin-bottom: 1.5rem; /* Increased spacing below the paragraph */
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: rgb(6, 82, 207); /* Change border color on focus */
+}
+
+.submit-btn {
+    background-color: rgb(6, 82, 207); /* Match the "Book a Demo" button color */
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px; /* Rounded corners */
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Full width */
+}
+
+.submit-btn:hover {
+    background-color: rgb(5, 70, 180); /* Darker shade on hover */
+}
+
+/* Testimonial Styles */
+.testimonial {
+    margin-top: 1rem; /* Space above testimonial */
+}
+
+.testimonial h3 {
+    font-size: 1.5rem; /* Title size */
+    margin-bottom: 0.5rem; /* Space below title */
+}
+
+.testimonial p {
+    font-size: 1rem; /* Quote size */
+    margin-bottom: 1rem; /* Space below quote */
+}
+
+.author {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Space between avatar and text */
+}
+
+.author-avatar {
+    width: 80px; /* Increased size for zoom effect */
+    height: 80px; /* Increased size for zoom effect */
+    border-radius: 50%; /* Circular avatar */
+}
+
+.author-info {
+    display: flex;
+    flex-direction: column; /* Stack name and title */
+}
+
+.author-name {
+    font-weight: bold; /* Bold name */
+}
+
+.author-title {
+    font-size: 0.9rem; /* Smaller title */
+    color: var(--secondary-color); /* Secondary color */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .form-container {
+        flex-direction: column; /* Stack form fields and testimonial */
+        gap: 1rem; /* Space between stacked items */
+    }
+
+    .form-left h2 {
+        font-size: 2rem; /* Smaller heading */
+    }
+
+    .testimonial {
+        margin-top: 1rem; /* Space above testimonial */
+        margin-bottom: 2rem; /* Space below testimonial */
+
+    }
+}
+
+/* Form Validation Styles */
+.form-group input:invalid,
+.form-group select:invalid {
+    border-color: #aeaeae;
+}
+
+.form-group input:valid,
+.form-group select:valid {
+    border-color: #00C851;
+}
+
+/* Testimonial Styles */
+.testimonial {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+}
+
+.testimonial-content {
+    text-align: left;
+}
+
+.company-logo {
+    height: 30px;
+    margin-bottom: 1.5rem;
+}
+
+.quote {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.author-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+
+.author-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.author-name {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.2rem;
+}
+
+.author-title {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .demo-form-section {
+        padding: 2rem 1rem;
+    }
+
+    .form-left h2 {
+        font-size: 2.2rem;
+    }
+
+    .testimonial {
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+    }
+
+    .quote {
+        font-size: 0.9rem;
+    }
+}
  

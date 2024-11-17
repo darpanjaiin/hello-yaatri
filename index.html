@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.6.3/lottie.min.js"></script>
 </head>
@@ -18,7 +17,7 @@
                 <img src="assets/logo.png" alt="Hello Yaatri Logo">
             </div>
             <div class="nav-buttons">
-                <a href="/demo" class="btn-demo">Book a demo</a>
+                <a href="#" class="btn-demo" id="book-demo-btn">Book a demo</a>
             </div>
         </nav>
     </header>
@@ -32,22 +31,48 @@
             <div id="lottie-animation" style="width: 100%; height: 400px;"></div>
             <button class="shimmer-btn btn-primary" id="contact-btn">Get in touch</button>
             <div class="demo-prompt">
-                Get your Digital Guidebook now!
             </div>
         </section>
 
-        <!-- Minimalistic Floating Contact Card -->
-        <div class="floating-contact-card">
-            <h2>Contact Us</h2>
-            <div class="contact-icons">
-                <a href="tel:+918999915037" class="contact-icon" title="Call Us">
-                    📱
-                </a>
-                <a href="mailto:acadarpanjaindsj@gmail.com" class="contact-icon" title="Email Us">
-                    📧
-                </a>
+        <!-- Demo Form Section -->
+        <section id="demo-form" class="demo-form-section">
+            <div class="form-container">
+                <div class="form-left">
+                    <h2>Schedule a Demo</h2>
+                    <p>Let's get some basic info, and then we will get you on the calendar!</p>
+                    <form>
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Full Name*" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder="Phone Number*" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Email Address*" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" id="company" name="company" placeholder="Name of Company*" required>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Submit Information</button>
+                    </form>
+                </div>
+
+                <div class="form-right">
+                    <p>"At Hello Yaatri, we’re on a mission to make every traveler feel at home while helping hosts shine brighter online."</p>
+                    <div class="author">
+                        <img src="assets/author-avatar.png" alt="Tony Figola" class="author-avatar">
+                        <div class="author-info">
+                            <p class="author-name">CA Darpan Jain</p>
+                            <p class="author-title">Co-founder & CFO at Hello Yaatri</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
     </main>
 
     <script>
@@ -83,6 +108,12 @@
         };
 
         typingAnimation(['Reviews', 'Ratings']); // Start typing animation
+
+        // Show demo form on button click
+        document.getElementById('book-demo-btn').onclick = function() {
+            document.getElementById('demo-form').style.display = 'block'; // Show the form
+            document.getElementById('demo-form').scrollIntoView({ behavior: 'smooth' }); // Scroll to the form
+        }
     </script>
 </body>
 </html> 
