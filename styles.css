@@ -752,20 +752,9 @@ html {
     color: #007BFF; /* Change color on hover (adjust as needed) */
 }
 
-/* Update notification styles for a cleaner look */
-.notifications-container {
-    position: absolute;
-    top: 50%; /* Center vertically */
-    right: 20px;
-    width: 300px;
-    height: auto; /* Change from 100% to auto */
-    transform: translateY(-50%); /* Perfect vertical centering */
-    pointer-events: none;
-    z-index: 100;
-}
-
+/* Update notification styles for better text wrapping */
 .notification {
-    position: relative; /* Change from absolute to relative */
+    position: relative;
     right: 0;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(8px);
@@ -777,14 +766,148 @@ html {
     gap: 12px;
     opacity: 0;
     width: 300px;
-    margin-bottom: 10px; /* Add space between stacked notifications */
+    margin-bottom: 10px;
     animation: simpleNotification 2.5s ease-in-out forwards;
+    overflow: hidden; /* Prevent text overflow */
 }
 
-/* Simpler, cleaner animation */
+.notification-content {
+    flex: 1;
+    min-width: 0; /* Enable text wrapping in flexbox */
+    overflow-wrap: break-word; /* Enable word wrapping */
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+.notification-title {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 4px;
+    white-space: normal; /* Allow text to wrap */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ellipsis for very long titles */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limit to 2 lines */
+    -webkit-box-orient: vertical;
+}
+
+.notification-message {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.4;
+    white-space: normal; /* Allow text to wrap */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ellipsis for very long messages */
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limit to 3 lines */
+    -webkit-box-orient: vertical;
+}
+
+.notification-icon {
+    flex-shrink: 0; /* Prevent icon from shrinking */
+    font-size: 20px;
+    margin-top: 2px;
+    width: 24px; /* Fixed width */
+    text-align: center;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .notifications-container {
+        width: calc(100% - 40px);
+        right: 20px;
+        max-width: 300px;
+    }
+
+    .notification {
+        width: 100%;
+        padding: 10px 14px;
+        margin-bottom: 8px;
+    }
+
+    .notification-title {
+        font-size: 13px;
+        -webkit-line-clamp: 1; /* Limit to 1 line on mobile */
+    }
+
+    .notification-message {
+        font-size: 12px;
+        line-height: 1.3;
+        -webkit-line-clamp: 2; /* Limit to 2 lines on mobile */
+    }
+
+    .notification-icon {
+        font-size: 18px;
+        width: 20px; /* Smaller fixed width for mobile */
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 380px) {
+    .notifications-container {
+        width: calc(100% - 30px);
+        right: 15px;
+    }
+
+    .notification {
+        padding: 8px 12px;
+    }
+
+    .notification-title {
+        font-size: 12px;
+    }
+
+    .notification-message {
+        font-size: 11px;
+    }
+
+    .notification-icon {
+        font-size: 16px;
+        width: 18px; /* Even smaller fixed width for very small devices */
+    }
+}
+
+/* Ensure notifications don't interfere with other elements */
+@media (max-width: 768px) {
+    .hero {
+        overflow: visible; /* Allow notifications to be visible */
+    }
+
+    #lottie-animation {
+        position: relative; /* Ensure it stays in place */
+        z-index: 1; /* Keep it below notifications */
+    }
+
+    .shimmer-btn {
+        position: relative;
+        z-index: 1;
+    }
+}
+
+/* Fix for iOS Safari */
+@supports (-webkit-touch-callout: none) {
+    .notification {
+        /* Fix for backdrop-filter on iOS */
+        -webkit-backdrop-filter: blur(8px);
+    }
+}
+
+/* Update notifications container positioning */
+.notifications-container {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    width: 300px;
+    height: auto;
+    transform: translateY(-50%);
+    pointer-events: none;
+    z-index: 100;
+}
+
+/* Update notification animation */
 @keyframes simpleNotification {
     0% {
-        transform: translateX(20px);
+        transform: translateX(100%);
         opacity: 0;
     }
     15% {
@@ -796,30 +919,54 @@ html {
         opacity: 1;
     }
     100% {
-        transform: translateX(20px);
+        transform: translateX(100%);
         opacity: 0;
     }
 }
 
-/* Update notification content styles for better readability */
-.notification-content {
-    flex: 1;
+/* Update notification wrapper */
+.notification-wrapper {
+    position: relative;
+    width: 100%;
 }
 
-.notification-title {
-    font-weight: 600;
-    font-size: 14px;
-    margin-bottom: 4px;
+/* Update notification base styles */
+.notification {
+    position: relative;
+    right: 0;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(8px);
+    padding: 12px 16px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    opacity: 0;
+    width: 100%;
+    margin-bottom: 10px;
+    animation: simpleNotification 2.5s ease-in-out forwards;
+    overflow: hidden;
 }
 
-.notification-message {
-    font-size: 13px;
-    color: #666;
-    line-height: 1.4;
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .notifications-container {
+        width: 280px; /* Fixed width for mobile */
+        right: 10px;
+    }
+
+    .notification {
+        padding: 10px 14px;
+        margin-bottom: 8px;
+    }
 }
 
-.notification-icon {
-    font-size: 20px;
-    margin-top: 2px;
+/* Small mobile devices */
+@media (max-width: 380px) {
+    .notifications-container {
+        width: 260px; /* Slightly smaller for very small devices */
+        right: 8px;
+    }
 }
  
