@@ -969,4 +969,26 @@ html {
         right: 8px;
     }
 }
+
+/* Hide notifications on mobile devices */
+@media (max-width: 768px) {
+    .notifications-container {
+        display: none; /* Hide completely on mobile */
+    }
+}
+
+/* Only show notifications on desktop */
+@media (min-width: 769px) {
+    .notifications-container {
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        width: 300px;
+        height: auto;
+        transform: translateY(-50%);
+        pointer-events: none;
+        z-index: 100;
+        display: block; /* Ensure visibility on desktop */
+    }
+}
  
