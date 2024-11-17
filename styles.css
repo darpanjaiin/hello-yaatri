@@ -41,9 +41,8 @@ body {
 }
 
 .nav-buttons {
-    position: fixed; /* Fix the button at the top left */
-    top: 2rem; /* Distance from the top */
-    right: 1.5rem; /* Distance from the left */
+    position: relative; /* Change to relative for normal flow */
+    margin: 1rem; /* Add margin for spacing */
     z-index: 1000; /* Ensure it appears above other content */
 }
 
@@ -74,7 +73,7 @@ body {
 .hero h1 {
     font-size: 4rem;
     line-height: 1.1;
-    margin-bottom: 1.2rem;
+    margin-bottom: 0.5rem;
     font-weight: 800;
     letter-spacing: -2.5px;
     white-space: nowrap;
@@ -534,7 +533,7 @@ html {
     font-weight: 500;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 25%; /* Full width */
+    width: 40%; /* Full width */
 }
 
 .submit-btn:hover {
@@ -686,9 +685,8 @@ html {
 }
 
 .logo {
-    position: fixed; /* Fix the logo at the top */
-    top: 1rem; /* Distance from the top */
-    left: 1rem; /* Distance from the left */
+    position: relative; /* Change to relative for normal flow */
+    margin: 1rem; /* Add margin for spacing */
     z-index: 1000; /* Ensure it appears above other content */
 }
  

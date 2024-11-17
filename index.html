@@ -39,8 +39,9 @@
             <div class="form-container">
                 <div class="form-left">
                     <h2>Schedule a Demo</h2>
-                    <p>Let's get some basic info, and then we will get you on the calendar!</p>
-                    <form>
+                    <p>Submit your details, and our team will reach out to you.</p>
+                    <form action="https://formspree.io/f/xgvezwre" method="POST">
+                        <input type="hidden" name="_next" value="https://your-website.com/thanks.html">
                         <div class="form-group">
                             <input type="text" id="name" name="name" placeholder="Full Name*" required>
                         </div>
@@ -115,12 +116,7 @@
             event.preventDefault(); // Prevent default button behavior
             document.getElementById('demo-form').scrollIntoView({ behavior: 'smooth' }); // Scroll to the form
         }
-
-        // Redirect to demo section on "Submit" button click
-        document.querySelector('.submit-btn').onclick = function(event) {
-            event.preventDefault(); // Prevent default form submission
-            document.getElementById('demo-form').scrollIntoView({ behavior: 'smooth' }); // Scroll to the form
-        }
     </script>
+    <script src="script.js"></script>
 </body>
 </html> 
