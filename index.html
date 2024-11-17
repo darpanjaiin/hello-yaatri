@@ -13,9 +13,9 @@
 <body>
     <header>
         <nav class="navbar">
-            <div class="logo">
+            <a href="index.html" class="logo">
                 <img src="assets/logo.png" alt="Hello Yaatri Logo">
-            </div>
+            </a>
             <div class="nav-buttons">
                 <a href="#" class="btn-demo" id="book-demo-btn">Get in touch</a>
             </div>
@@ -38,29 +38,24 @@
         <section id="demo-form" class="demo-form-section">
             <div class="form-container">
                 <div class="form-left">
-                    <h2>Reach out!</h2>
-                    <p>Share a few details to kickstart your journey to better guest experiences and top-notch ratings!</p>
+                    <h2>Schedule a Demo</h2>
+                    <p>Let's get some basic info, and then we will get you on the calendar!</p>
                     <form>
                         <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Full Name" required>
+                            <input type="text" id="name" name="name" placeholder="Full Name*" required>
                         </div>
-                        
                         <div class="form-group">
-                            <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+                            <input type="tel" id="phone" name="phone" placeholder="Phone Number*" required>
                         </div>
-
                         <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Email Address" required>
+                            <input type="email" id="email" name="email" placeholder="Email Address*" required>
                         </div>
-
                         <div class="form-group">
-                            <input type="text" id="company" name="company" placeholder="Name of Property/Resort" required>
+                            <input type="text" id="company" name="company" placeholder="Name of Company*" required>
                         </div>
-
                         <button type="submit" class="submit-btn">Submit</button>
                     </form>
                 </div>
-
                 <div class="form-right">
                     <p>"At Hello Yaatri, we’re on a mission to make every traveler feel at home while helping hosts improve their visibility online."</p>
                     <div class="author">
@@ -109,9 +104,21 @@
 
         typingAnimation(['Reviews', 'Ratings']); // Start typing animation
 
-        // Show demo form on button click
-        document.getElementById('book-demo-btn').onclick = function() {
-            document.getElementById('demo-form').style.display = 'block'; // Show the form
+        // Show demo form on "Get in Touch" button click (blue button)
+        document.getElementById('book-demo-btn').onclick = function(event) {
+            event.preventDefault(); // Prevent default anchor behavior
+            document.getElementById('demo-form').scrollIntoView({ behavior: 'smooth' }); // Scroll to the form
+        }
+
+        // Show demo form on "Get in Touch" button click (black button)
+        document.getElementById('contact-btn').onclick = function(event) {
+            event.preventDefault(); // Prevent default button behavior
+            document.getElementById('demo-form').scrollIntoView({ behavior: 'smooth' }); // Scroll to the form
+        }
+
+        // Redirect to demo section on "Submit" button click
+        document.querySelector('.submit-btn').onclick = function(event) {
+            event.preventDefault(); // Prevent default form submission
             document.getElementById('demo-form').scrollIntoView({ behavior: 'smooth' }); // Scroll to the form
         }
     </script>

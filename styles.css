@@ -41,8 +41,10 @@ body {
 }
 
 .nav-buttons {
-    display: flex;
-    gap: 1rem;
+    position: fixed; /* Fix the button at the top left */
+    top: 2rem; /* Distance from the top */
+    right: 1.5rem; /* Distance from the left */
+    z-index: 1000; /* Ensure it appears above other content */
 }
 
 .btn-signin {
@@ -551,7 +553,7 @@ html {
 
 .testimonial p {
     font-size: 1rem; /* Quote size */
-    margin-bottom: 1rem; /* Space below quote */
+    margin-bottom: 1.5rem; /* Increased space below the quote */
 }
 
 .author {
@@ -681,5 +683,12 @@ html {
     .quote {
         font-size: 0.9rem;
     }
+}
+
+.logo {
+    position: fixed; /* Fix the logo at the top */
+    top: 1rem; /* Distance from the top */
+    left: 1rem; /* Distance from the left */
+    z-index: 1000; /* Ensure it appears above other content */
 }
  
