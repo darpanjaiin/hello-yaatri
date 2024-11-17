@@ -1,9 +1,9 @@
 :root {
     --primary-color: #1a1a1a;
     --secondary-color: #666;
-    --accent-color: #0066ff;
+    --accent-color: #ff4d00;
     --background-color: #ffffff;
-    --button-black: #1a1a1a;
+    --button-black: #ff4d00;
 }
 
 * {
@@ -55,11 +55,22 @@ body {
 
 .btn-demo {
     text-decoration: none;
-    color: white; /* Change text color to white for better contrast */
-    background-color: rgb(6, 82, 207); /* Updated background color */
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
+    color: white; /* Default text color */
+    background-color: #ff4d00; /* Original background color */
+    padding: 0.75rem 1.5rem; /* Ensure consistent padding for both buttons */
+    border-radius: 6px; /* Same border radius */
     font-weight: 500;
+    display: inline-block; /* Ensure it behaves like a button */
+    text-align: center; /* Center text */
+    min-width: 150px; /* Set a minimum width for uniformity */
+    box-sizing: border-box; /* Include padding in width calculation */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+.btn-demo:hover {
+    background-color: black; /* Change background to black on hover */
+    color: white; /* Change text color to white on hover */
+    transform: scale(1.05); /* Slightly scale up on hover */
 }
 
 .hero {
@@ -97,41 +108,7 @@ body {
 }
 
 .shimmer-btn {
-    position: relative;
-    overflow: hidden;
-    color: white; /* Text color */
-    background-color: var(--button-black); /* Background color */
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 6px;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: transform 0.3s ease; /* Smooth transition for scaling */
-}
-
-.shimmer-btn:hover {
-    transform: scale(1.05); /* Slightly scale up on hover */
-}
-
-.shimmer-btn::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.2) 100%);
-    animation: shimmer 1.5s infinite;
-}
-
-@keyframes shimmer {
-    0% {
-        left: -100%;
-    }
-    100% {
-        left: 100%;
-    }
+    display: none; /* Hide shimmer effect */
 }
 
 .btn-primary {
@@ -523,11 +500,11 @@ html {
 
 .form-group input:focus {
     outline: none;
-    border-color: rgb(6, 82, 207); /* Change border color on focus */
+    border-color: #ff4d00; /* Change border color on focus */
 }
 
 .submit-btn {
-    background-color: rgb(6, 82, 207); /* Match the "Book a Demo" button color */
+    background-color: #ff4d00; /* Match the "Book a Demo" button color */
     color: white;
     padding: 1rem 2rem;
     border: none;
@@ -540,7 +517,7 @@ html {
 }
 
 .submit-btn:hover {
-    background-color: rgb(5, 70, 180); /* Darker shade on hover */
+    background-color: #cc3d00; /* Darker shade on hover */
 }
 
 /* Testimonial Styles */
@@ -743,8 +720,8 @@ html {
 }
 
 .author-link {
-    color: inherit; /* Use the current text color */
-    text-decoration: none; /* Remove underline */
+    color: #ff4d00; /* Change text color */
+    text-decoration: underline; /* Underline the text */
 }
 
 .author-link:hover {
