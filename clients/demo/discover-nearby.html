@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Nearby - Guest Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/guide-pages.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Discover Nearby Adventures & Sights</h1>
+
+        <section id="trails">
+            <h2>Scenic Trails and Natural Wonders</h2>
+            <img src="https://images.unsplash.com/photo-1551632811-561732d1e306" alt="Beautiful hiking trail" class="section-image">
+            <p>Explore the natural beauty surrounding our resort:</p>
+            <ul>
+                <li>Guided nature walks available</li>
+                <li>Hiking trails for all skill levels</li>
+                <li>Scenic viewpoints and photo spots</li>
+                <li>Local flora and fauna guide</li>
+            </ul>
+        </section>
+
+        <section id="cafes">
+            <h2>Top Local Cafés and Eateries</h2>
+            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24" alt="Charming local cafe" class="section-image">
+            <p>Our curated selection of local dining spots:</p>
+            <ul>
+                <li>Authentic local cuisine</li>
+                <li>Trendy coffee shops</li>
+                <li>Farm-to-table restaurants</li>
+                <li>Local food markets</li>
+            </ul>
+        </section>
+
+        <section id="family-activities">
+            <h2>Family-Friendly Activities for All Ages</h2>
+            <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368" alt="Family enjoying activities" class="section-image">
+            <p>Fun activities for the whole family:</p>
+            <ul>
+                <li>Water parks and beaches</li>
+                <li>Interactive museums</li>
+                <li>Adventure parks</li>
+                <li>Family-friendly tours</li>
+            </ul>
+        </section>
+
+        <section id="historical">
+            <h2>Must-Visit Historical Spots Nearby</h2>
+            <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523" alt="Historic monument" class="section-image">
+            <p>Discover the rich history of our region:</p>
+            <ul>
+                <li>Ancient temples and ruins</li>
+                <li>Heritage walking tours</li>
+                <li>Local museums</li>
+                <li>Cultural landmarks</li>
+            </ul>
+        </section>
+
+        <section id="nightlife">
+            <h2>Nightlife and Evening Entertainment</h2>
+            <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819" alt="Evening entertainment" class="section-image">
+            <p>Experience the local nightlife scene:</p>
+            <ul>
+                <li>Rooftop bars and lounges</li>
+                <li>Live music venues</li>
+                <li>Cultural performances</li>
+                <li>Night markets and events</li>
+            </ul>
+        </section>
+
+        <a href="https://g.page/review" class="review-button" id="reviewButton">
+            Review Us, or We'll Tell Future Guests You Snored.
+        </a>
+
+        <a href="guestguide.html" class="back-button">Back to Guide</a>
+    </div>
+
+    <script>
+        const reviewMessages = [
+            "Review Us, or We'll Tell Future Guests You Snored.",
+            "Write a Review—We Promise Not to Judge Your Netflix Choices.",
+            "Leave a Review, or We'll Assume You Stole the Towels.",
+            "Your Review Could End World Hunger (Just Kidding, But It Helps Us).",
+            "Help Us Out—We Need the Stars More Than NASA.",
+            "Leave a Review—It's the Least You Can Do After the Free Soap.",
+            "Write a Review, or We'll Tell the Chef You Didn't Like Breakfast.",
+            "Review Us, or We'll Assume You Took the Mini Shampoo Too.",
+            "Your Review Could Save Puppies. Okay, Not Really, but It'll Save Our SEO."
+        ];
+
+        window.onload = function() {
+            const reviewButton = document.getElementById('reviewButton');
+            const randomMessage = reviewMessages[Math.floor(Math.random() * reviewMessages.length)];
+            reviewButton.textContent = randomMessage;
+        }
+    </script>
+</body>
+</html> 

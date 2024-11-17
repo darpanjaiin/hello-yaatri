@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Guide - Guest Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/guide-pages.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Shopping Destinations & Markets</h1>
+
+        <section id="markets">
+            <h2>Local Markets & Boutiques</h2>
+            <img src="https://images.unsplash.com/photo-1555921015-5532091f6026" alt="Local market" class="section-image">
+            <p>Explore local shopping spots:</p>
+            <ul>
+                <li>Traditional Markets</li>
+                <li>Artisan Shops</li>
+                <li>Local Boutiques</li>
+                <li>Street Shopping</li>
+            </ul>
+        </section>
+
+        <section id="souvenirs">
+            <h2>Souvenir Shopping Guide</h2>
+            <img src="https://images.unsplash.com/photo-1470309864661-68328b2cd0a5" alt="Souvenirs" class="section-image">
+            <p>Perfect memorabilia:</p>
+            <ul>
+                <li>Local Handicrafts</li>
+                <li>Traditional Items</li>
+                <li>Authentic Artwork</li>
+                <li>Regional Specialties</li>
+            </ul>
+        </section>
+
+        <section id="malls">
+            <h2>Mall Directions & Timings</h2>
+            <img src="https://images.unsplash.com/photo-1519567241046-7f570eee3ce6" alt="Shopping mall" class="section-image">
+            <p>Modern shopping centers:</p>
+            <ul>
+                <li>Nearby Malls</li>
+                <li>Brand Outlets</li>
+                <li>Entertainment Zones</li>
+                <li>Food Courts</li>
+            </ul>
+        </section>
+
+        <section id="deals">
+            <h2>Best Deals & Recommendations</h2>
+            <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b" alt="Shopping deals" class="section-image">
+            <p>Smart shopping tips:</p>
+            <ul>
+                <li>Seasonal Sales</li>
+                <li>Best Bargains</li>
+                <li>Local Recommendations</li>
+                <li>Shopping Hours</li>
+            </ul>
+        </section>
+        <a href="https://g.page/review" class="review-button" id="reviewButton">
+            Review Us, or We'll Tell Future Guests You Snored.
+        </a>
+
+        <a href="guestguide.html" class="back-button">Back to Guide</a>
+    </div>
+    
+    <script>
+        // Array of funny review messages
+        const reviewMessages = [
+            "Review Us, or We'll Tell Future Guests You Snored.",
+            "Write a Review—We Promise Not to Judge Your Netflix Choices.",
+            "Leave a Review, or We'll Assume You Stole the Towels.",
+            "Your Review Could End World Hunger (Just Kidding, But It Helps Us).",
+            "Help Us Out—We Need the Stars More Than NASA.",
+            "Leave a Review—It's the Least You Can Do After the Free Soap.",
+            "Write a Review, or We'll Tell the Chef You Didn't Like Breakfast.",
+            "Review Us, or We'll Assume You Took the Mini Shampoo Too.",
+            "Your Review Could Save Puppies. Okay, Not Really, but It'll Save Our SEO."
+        ];
+
+        // Function to set random review message
+        window.onload = function() {
+            const reviewButton = document.getElementById('reviewButton');
+            const randomMessage = reviewMessages[Math.floor(Math.random() * reviewMessages.length)];
+            reviewButton.textContent = randomMessage;
+        }
+    </script>
+</body>
+</html> 

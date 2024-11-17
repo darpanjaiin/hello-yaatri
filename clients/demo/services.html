@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extended Stays and Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/guide-pages.css">
+    <style>
+        .guide-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 50px;
+            font-size: 2.5em;
+            position: relative;
+        }
+
+        h1:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: #ff4d00;
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: #ff4d00;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+            transform-origin: left;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-card h2 i {
+            color: #ff4d00;
+            font-size: 1.2em;
+        }
+
+        .service-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .service-card li {
+            margin: 15px 0;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .service-card li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #ff4d00;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #fff5f0, #fff);
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 50px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-section h2 {
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-method {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            min-width: 200px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-method:hover {
+            transform: translateY(-3px);
+        }
+
+        .contact-method i {
+            font-size: 24px;
+            color: #ff4d00;
+            margin-bottom: 10px;
+        }
+
+        .back-button {
+            display: block;
+            width: fit-content;
+            margin: 40px auto;
+            padding: 15px 30px;
+            background: #ff4d00;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 77, 0, 0.2);
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 77, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .contact-methods {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-method {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="guide-content">
+        <h1>Extended Stays and Add-on Services</h1>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <h2><i>🌟</i>Extended Stay Options</h2>
+                <ul>
+                    <li>Weekly rates available (save 15%)</li>
+                    <li>Monthly stays (save 25%)</li>
+                    <li>Flexible booking extensions</li>
+                    <li>Special seasonal rates</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <h2><i>⏰</i>Late Check-out</h2>
+                <ul>
+                    <li>Standard check-out: 11 AM</li>
+                    <li>Extended until 2 PM: $30</li>
+                    <li>Extended until 4 PM: $50</li>
+                    <li>Subject to availability</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <h2><i>🧹</i>Housekeeping</h2>
+                <ul>
+                    <li>Additional cleaning service</li>
+                    <li>Fresh linens and towels</li>
+                    <li>Laundry service available</li>
+                    <li>Special requests welcome</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <h2><i>🚗</i>Transport Services</h2>
+                <ul>
+                    <li>Airport transfers</li>
+                    <li>Local area transportation</li>
+                    <li>Car rental assistance</li>
+                    <li>Parking arrangements</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <h2><i>🎯</i>Local Experiences</h2>
+                <ul>
+                    <li>Guided tours booking</li>
+                    <li>Restaurant reservations</li>
+                    <li>Event tickets</li>
+                    <li>Custom itinerary planning</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <h2>Ready to Enhance Your Stay?</h2>
+            <p>Choose your preferred way to reach us:</p>
+            
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <i>📱</i>
+                    <h3>Call/Text</h3>
+                    <p>+1 (XXX) XXX-XXXX</p>
+                </div>
+                
+                <div class="contact-method">
+                    <i>📧</i>
+                    <h3>Email</h3>
+                    <p>host@venue.com</p>
+                </div>
+                
+                <div class="contact-method">
+                    <i>💬</i>
+                    <h3>Message</h3>
+                    <p>Via booking platform</p>
+                </div>
+            </div>
+        </div>
+
+        <a href="https://g.page/review" class="review-button" id="reviewButton">
+        </a>
+
+        <a href="guestguide.html" class="back-button">Back to Guide</a>
+    </div>
+    
+    <script>
+        // Array of funny review messages
+        const reviewMessages = [
+            "Review Us, or We'll Tell Future Guests You Snored.",
+            "Write a Review—We Promise Not to Judge Your Netflix Choices.",
+            "Leave a Review, or We'll Assume You Stole the Towels.",
+            "Your Review Could End World Hunger (Just Kidding, But It Helps Us).",
+            "Help Us Out—We Need the Stars More Than NASA.",
+            "Leave a Review—It's the Least You Can Do After the Free Soap.",
+            "Write a Review, or We'll Tell the Chef You Didn't Like Breakfast.",
+            "Review Us, or We'll Assume You Took the Mini Shampoo Too.",
+            "Your Review Could Save Puppies. Okay, Not Really, but It'll Save Our SEO."
+        ];
+
+        // Function to set random review message
+        window.onload = function() {
+            const reviewButton = document.getElementById('reviewButton');
+            const randomMessage = reviewMessages[Math.floor(Math.random() * reviewMessages.length)];
+            reviewButton.textContent = randomMessage;
+        }
+    </script>
+</body>
+</html> 

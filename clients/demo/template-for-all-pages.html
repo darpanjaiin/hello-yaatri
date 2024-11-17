@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="[Page specific description]">
+    <title>[Page Title] - Guest Guide</title>
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="css/guide-pages.min.css" as="style">
+    <link rel="preload" href="js/image-optimizer.js" as="script">
+    
+    <!-- Critical CSS inline -->
+    <style>
+        .container{max-width:800px;margin:0 auto}
+        .section-image{width:100%;height:300px;object-fit:cover;opacity:0;transition:opacity .3s ease}
+        .section-image.loaded{opacity:1}
+    </style>
+    
+    <!-- Defer non-critical CSS -->
+    <link rel="stylesheet" href="css/guide-pages.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400&display=swap" 
+          media="print" onload="this.media='all'">
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+    <link rel="dns-prefetch" href="https://images.unsplash.com">
+    
+    <!-- Add browser hints -->
+    <link rel="prefetch" href="guestguide.html">
+</head>
+<body>
+    <div class="container">
+        <!-- Content here -->
+    </div>
+
+    <!-- Initialize optimizations -->
+    <script src="js/image-optimizer.js" defer></script>
+    <script src="js/performance-monitor.js" defer></script>
+    <script>
+        // Register service worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+
+        // Initialize optimizations
+        document.addEventListener('DOMContentLoaded', () => {
+            new ImageOptimizer();
+            new PerformanceMonitor();
+        });
+
+        // Add intersection observer for content
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+
+    <!-- Add this before the back button in each page -->
+    <a href="https://g.page/review" class="review-button" id="reviewButton">
+        Review Us, or We'll Tell Future Guests You Snored.
+    </a>
+
+    <a href="guestguide.html" class="back-button">Back to Guide</a>
+</body>
+</html> 

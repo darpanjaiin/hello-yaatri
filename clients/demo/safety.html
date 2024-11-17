@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safety Guidelines - Guest Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/guide-pages.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Stay Safe – Our Tips & Guidelines</h1>
+
+        <section id="emergency">
+            <h2>Emergency Contact Information</h2>
+            <img src="https://images.unsplash.com/photo-1587745416684-47953f16f02f" alt="Emergency services" class="section-image">
+            <div class="emergency-contacts">
+                <p>24/7 Front Desk: Dial 0</p>
+                <p>Emergency Services: Dial 911</p>
+                <p>Resort Security: Dial 1</p>
+                <p>Medical Assistance: Dial 2</p>
+            </div>
+        </section>
+
+        <section id="health">
+            <h2>Health & Wellness Essentials</h2>
+            <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528" alt="First aid supplies" class="section-image">
+            <p>Your room is equipped with:</p>
+            <ul>
+                <li>First aid kit in the bathroom cabinet</li>
+                <li>List of nearby pharmacies and medical facilities</li>
+                <li>COVID-19 safety supplies</li>
+                <li>Emergency evacuation map</li>
+            </ul>
+        </section>
+
+        <section id="guidelines">
+            <h2>Safety Guidelines to Keep You Secure</h2>
+            <img src="https://images.unsplash.com/photo-1584483766114-2cea6facdf57" alt="Safety guidelines" class="section-image">
+            <ul>
+                <li>Always carry your room key card</li>
+                <li>Use in-room safe for valuables</li>
+                <li>Keep your door locked at all times</li>
+                <li>Don't share room number with strangers</li>
+            </ul>
+        </section>
+
+        <section id="etiquette">
+            <h2>Resort Etiquette for a Smooth Stay</h2>
+            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945" alt="Resort etiquette" class="section-image">
+            <p>Help us maintain a pleasant environment:</p>
+            <ul>
+                <li>Observe quiet hours (10 PM - 7 AM)</li>
+                <li>Follow pool and spa safety rules</li>
+                <li>Respect other guests' privacy</li>
+                <li>Smoke only in designated areas</li>
+            </ul>
+        </section>
+
+        <section id="local-safety">
+            <h2>Local Safety Tips You Should Know</h2>
+            <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6" alt="Local area safety" class="section-image">
+            <p>Stay safe while exploring:</p>
+            <ul>
+                <li>Use resort shuttle services when possible</li>
+                <li>Keep emergency numbers handy</li>
+                <li>Stay on marked trails during hikes</li>
+                <li>Be aware of local weather conditions</li>
+            </ul>
+        </section>
+
+        <a href="https://g.page/review" class="review-button" id="reviewButton">
+            Review Us, or We'll Tell Future Guests You Snored.
+        </a>
+
+        <a href="guestguide.html" class="back-button">Back to Guide</a>
+    </div>
+
+    <script>
+        const reviewMessages = [
+            "Review Us, or We'll Tell Future Guests You Snored.",
+            "Write a Review—We Promise Not to Judge Your Netflix Choices.",
+            "Leave a Review, or We'll Assume You Stole the Towels.",
+            "Your Review Could End World Hunger (Just Kidding, But It Helps Us).",
+            "Help Us Out—We Need the Stars More Than NASA.",
+            "Leave a Review—It's the Least You Can Do After the Free Soap.",
+            "Write a Review, or We'll Tell the Chef You Didn't Like Breakfast.",
+            "Review Us, or We'll Assume You Took the Mini Shampoo Too.",
+            "Your Review Could Save Puppies. Okay, Not Really, but It'll Save Our SEO."
+        ];
+
+        window.onload = function() {
+            const reviewButton = document.getElementById('reviewButton');
+            const randomMessage = reviewMessages[Math.floor(Math.random() * reviewMessages.length)];
+            reviewButton.textContent = randomMessage;
+        }
+    </script>
+</body>
+</html> 

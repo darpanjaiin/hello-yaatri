@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title Here</title>
+    <meta name="description" content="A brief description of your page for SEO.">
+    <meta name="keywords" content="keyword1, keyword2, keyword3">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Your Page Title Here">
+    <meta property="og:description" content="A brief description of your page for social media.">
+    <meta property="og:image" content="URL to image for social media sharing">
+    <meta property="og:url" content="URL of your page">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/modal.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Mono', monospace;
+            background: #f8f8f8;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-top: 60px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            aspect-ratio: 3/4; /* Maintain consistent ratio */
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 60%;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .tag {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgb(255, 255, 255);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            color: rgb(0, 0, 0);
+        }
+
+        .card-content {
+            padding: 24px;
+            height: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-title {
+            font-size: 20px;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+
+        .card-info {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .back-button {
+            display: block;
+            width: fit-content;
+            margin: 30px auto;
+            padding: 12px 24px;
+            background: #ff4d00;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 14px;
+            transition: transform 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            .container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                padding: 10px;
+            }
+
+            .card {
+                aspect-ratio: 2/3; /* Slightly adjusted ratio for mobile */
+            }
+
+            .card-image {
+                height: 55%;
+            }
+
+            .card-content {
+                padding: 15px;
+                height: 45%;
+            }
+
+            .card-title {
+                font-size: 16px;
+                line-height: 1.3;
+            }
+
+            .card-info {
+                font-size: 12px;
+            }
+
+            .tag {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 20px;
+                margin-top: 50px;
+                margin-bottom: 20px;
+            }
+
+            .map-button {
+                top: 10px;
+                right: 10px;
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.75);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+
+        .modal {
+            background: white;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+            overflow-y: auto;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        .modal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 30px;
+            height: 30px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease;
+        }
+
+        .modal-close:hover {
+            transform: rotate(90deg);
+        }
+
+        .modal-close::before,
+        .modal-close::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 2px;
+            background-color: #333;
+            border-radius: 1px;
+        }
+
+        .modal-close::before {
+            transform: rotate(45deg);
+        }
+
+        .modal-close::after {
+            transform: rotate(-45deg);
+        }
+
+        /* Prevent body scroll when modal is open */
+        body.modal-open {
+            overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .modal {
+                width: 95%;
+                padding: 20px;
+            }
+        }
+
+        /* Modal List Styles */
+        .modal-list {
+            margin-top: 20px;
+        }
+
+        .list-item {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .list-item:hover {
+            background-color: #f8f8f8;
+            padding-left: 20px;
+        }
+
+        .arrow {
+            color: #666;
+            font-size: 18px;
+        }
+
+        .modal h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            padding-right: 40px;
+        }
+
+        /* Add this new style for the map button */
+        .map-button {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            background: rgb(255, 77, 0);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+            z-index: 100;
+            transition: transform 0.3s ease;
+        }
+
+        .map-button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Add this CSS for the review button */
+        .review-button {
+            display: block;
+            width: fit-content; /* Adjust width to fit content */
+            margin: 20px auto;
+            padding: 8px 16px; /* Adjust padding for a smaller button */
+            background: #ff4d00; /* Match with back button */
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 12px; /* Smaller font size */
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .review-button:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <a href="property-map.html" class="map-button" target="_blank">The Map</a>
+    <h1>All You Need</h1>
+    <div class="container">
+        <!-- Card 1 -->
+        <div class="card">
+            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1582610116397-edb318620f90?auto=format&fit=crop&w=800&q=60')">
+                <span class="tag">Namaste</span>
+            </div>
+            <div class="card-content">
+                <div>
+                    <h2 class="card-title">Welcome</h2>
+                    <div class="card-info">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=60')">
+                <span class="tag">Prep</span>
+            </div>
+            <div class="card-content">
+                <div>
+                    <h2 class="card-title">Before You Arrive</h2>
+                    <div class="card-info">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card: When You Arrive -->
+        <div class="card">
+            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?auto=format&fit=crop&w=800&q=60')">
+                <span class="tag">Arrival</span>
+            </div>
+            <div class="card-content">
+                <div>
+                    <h2 class="card-title">When You Arrive</h2>
+                    <div class="card-info">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card: If you have kids -->
+        <div class="card" onclick="window.location.href='kids-guide.html'">
+            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1472162072942-cd5147eb3902?auto=format&fit=crop&w=800&q=60')">
+                <span class="tag">Kids</span>
+            </div>
+            <div class="card-content">
+                <div>
+                    <h2 class="card-title">If You Have Kids</h2>
+                    <div class="card-info">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card: If you love adventures -->
+        <div class="card" onclick="window.location.href='adventures-guide.html'">
+            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1533692328991-08159ff19fca?auto=format&fit=crop&w=800&q=60')">
+                <span class="tag">Adventure</span>
+            </div>
+            <div class="card-content">
+                <div>
+                    <h2 class="card-title">If You Love Adventures</h2>
+                    <div class="card-info">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card: Necessities and convenience -->
+        <div class="card">
+            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1445991842772-097fea258e7b?auto=format&fit=crop&w=800&q=60')">
+                <span class="tag">Essentials</span>
+            </div>
+            <div class="card-content">
+                <div>
+                    <h2 class="card-title">Necessities & Convenience</h2>
+                    <div class="card-info">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card: Shopping nearby -->
+        <div class="card" onclick="window.location.href='shopping-guide.html'">
+            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1555921015-5532091f6026?auto=format&fit=crop&w=800&q=60')">
+                <span class="tag">Shopping</span>
+            </div>
+            <div class="card-content">
+                <div>
+                    <h2 class="card-title">Shopping Nearby</h2>
+                    <div class="card-info">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card: Wi-Fi & More -->
+        <div class="card">
+            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1483478550801-ceba5fe50e8e?auto=format&fit=crop&w=800&q=60')">
+                <span class="tag">Connect</span>
+            </div>
+            <div class="card-content">
+                <div>
+                    <h2 class="card-title">Wi-Fi & More</h2>
+                    <div class="card-info">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card: Amenities -->
+        <div class="card">
+            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=60')">
+                <span class="tag">AMENITIES</span>
+            </div>
+            <div class="card-content">
+                <div>
+                    <h2 class="card-title">Amenities</h2>
+                    <div class="card-info">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card: Nearby Attractions -->
+        <div class="card">
+            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=800&q=60')">
+                <span class="tag">Explore</span>
+            </div>
+            <div class="card-content">
+                <div>
+                    <h2 class="card-title">Nearby Attractions & things to do<html lang="en">
+                    <head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <title>Document</title>
+                    </head>
+                    <body>
+                        
+                    </body>
+                    </html></h2>
+                    <div class="card-info">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card: Safety -->
+        <div class="card">
+            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1584433144859-1fc3ab64a957?auto=format&fit=crop&w=800&q=60')">
+                <span class="tag">Safety</span>
+            </div>
+            <div class="card-content">
+                <div>
+                    <h2 class="card-title">Safety & Property Rules</h2>
+                    <div class="card-info">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card: Review -->
+        <div class="card" onclick="window.location.href='share-story.html'">
+            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1576078044571-8ea98b0b0963?auto=format&fit=crop&w=800&q=60')">
+                <span class="tag">Review</span>
+            </div>
+            <div class="card-content">
+                <div>
+                    <h2 class="card-title">Leave a Review - Share Your Experience</h2>
+                    <div class="card-info">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card: Services -->
+        <div class="card" onclick="window.location.href='services.html'">
+            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=800&q=60')">
+                <span class="tag">Services</span>
+            </div>
+            <div class="card-content">
+                <div>
+                    <h2 class="card-title">Extend Stays and Add-on Services</h2>
+                    <div class="card-info">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card: Until Next Time -->
+        <div class="card" onclick="window.location.href='farewell.html'">
+            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=800&q=60')">
+                <span class="tag">Farewell</span>
+            </div>
+            <div class="card-content">
+                <div>
+                    <h2 class="card-title">Until Next Time</h2>
+                    <div class="card-info">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Structure -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal" id="modal">
+            <button class="modal-close" id="modalClose" aria-label="Close modal"></button>
+            <div class="modal-content" id="modalContent">
+                <!-- Content will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <a href="index.html" class="back-button">Back to Home</a>
+    <a href="https://www.google.com/maps/place/Your+Business+Name/reviews" class="review-button" target="_blank">Feeling inspired? Leave a quick review and make our day!</a>
+
+    <script src="js/modal.js"></script>
+</body>
+</html> 

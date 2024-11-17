@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Arrival Essentials - Guest Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/guide-pages.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Pre-Arrival Essentials</h1>
+
+        <section id="packing">
+            <h2>What to Pack for Your Adventure</h2>
+            <img src="https://images.unsplash.com/photo-1553531384-cc64ac80f931" alt="Packing essentials" class="section-image">
+            <p>Essential items for your stay:</p>
+            <ul>
+                <li>Weather-appropriate clothing</li>
+                <li>Comfortable walking shoes</li>
+                <li>Swimming attire for our pool</li>
+                <li>Personal toiletries</li>
+                <li>Any required medications</li>
+            </ul>
+        </section>
+
+        <section id="directions">
+            <h2>Directions and Getting Here Smoothly</h2>
+            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80" alt="Luxury hotel entrance" class="section-image">
+            <p>Our resort is located at [Address]. Here's how to reach us:</p>
+            <ul>
+                <li>From the airport: 30-minute drive via Highway 1</li>
+                <li>From downtown: 15-minute drive via Central Avenue</li>
+                <li>Public transport: Bus routes 101 and 102 stop nearby</li>
+            </ul>
+        </section>
+
+        <section id="requests">
+            <h2>Special Requests? Let Us Know!</h2>
+            <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd" alt="Concierge service" class="section-image">
+            <p>Contact our concierge for:</p>
+            <ul>
+                <li>Dietary requirements</li>
+                <li>Room preferences</li>
+                <li>Special occasions</li>
+                <li>Additional amenities</li>
+            </ul>
+        </section>
+
+        <section id="weather">
+            <h2>Weather Tips & Local Insights</h2>
+            <img src="https://images.unsplash.com/photo-1592210454359-9043f067919b" alt="Resort weather" class="section-image">
+            <p>Current seasonal information and recommendations for your stay:</p>
+            <ul>
+                <li>Average temperatures: 20°C - 30°C (68°F - 86°F)</li>
+                <li>Evening breeze from the ocean</li>
+                <li>Light rain possible in afternoons</li>
+                <li>Sun protection recommended</li>
+            </ul>
+        </section>
+
+        <section id="pre-checkin">
+            <h2>Pre-Check-In: How to Make it Seamless</h2>
+            <img src="https://images.unsplash.com/photo-1551632436-cbf8dd35adfa" alt="Digital check-in" class="section-image">
+            <p>Complete these steps for a smooth arrival:</p>
+            <ul>
+                <li>Online check-in available 24 hours before arrival</li>
+                <li>Have your ID and booking confirmation ready</li>
+                <li>Inform us of your arrival time</li>
+                <li>Special requests can be added during pre-check-in</li>
+            </ul>
+        </section>
+
+        <a href="https://g.page/review" class="review-button" id="reviewButton">
+            Review Us, or We'll Tell Future Guests You Snored.
+        </a>
+
+        <a href="guestguide.html" class="back-button">Back to Guide</a>
+    </div>
+
+    <script>
+        // Array of funny review messages
+        const reviewMessages = [
+            "Review Us, or We'll Tell Future Guests You Snored.",
+            "Write a Review—We Promise Not to Judge Your Netflix Choices.",
+            "Leave a Review, or We'll Assume You Stole the Towels.",
+            "Your Review Could End World Hunger (Just Kidding, But It Helps Us).",
+            "Help Us Out—We Need the Stars More Than NASA.",
+            "Leave a Review—It's the Least You Can Do After the Free Soap.",
+            "Write a Review, or We'll Tell the Chef You Didn't Like Breakfast.",
+            "Review Us, or We'll Assume You Took the Mini Shampoo Too.",
+            "Your Review Could Save Puppies. Okay, Not Really, but It'll Save Our SEO."
+        ];
+
+        // Function to set random review message
+        window.onload = function() {
+            const reviewButton = document.getElementById('reviewButton');
+            const randomMessage = reviewMessages[Math.floor(Math.random() * reviewMessages.length)];
+            reviewButton.textContent = randomMessage;
+        }
+    </script>
+</body>
+</html> 

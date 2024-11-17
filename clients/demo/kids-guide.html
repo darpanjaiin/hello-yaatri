@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kids Guide - Guest Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/guide-pages.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Family-Friendly Activities & Services</h1>
+
+        <section id="activities">
+            <h2>Kids' Activities & Play Areas</h2>
+            <img src="https://images.unsplash.com/photo-1588075592446-265fd1e6e76f" alt="Kids play area" class="section-image">
+            <p>Exciting activities for our young guests:</p>
+            <ul>
+                <li>Kids' Pool with Water Features</li>
+                <li>Indoor Play Zone (9 AM - 7 PM)</li>
+                <li>Arts & Crafts Corner</li>
+                <li>Mini Library with Children's Books</li>
+            </ul>
+        </section>
+
+        <section id="dining">
+            <h2>Family-Friendly Dining Options</h2>
+            <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352" alt="Family dining" class="section-image">
+            <p>Special dining arrangements for families:</p>
+            <ul>
+                <li>Kids' Menu Available</li>
+                <li>High Chairs & Booster Seats</li>
+                <li>Family Dining Areas</li>
+                <li>Special Dietary Options</li>
+            </ul>
+        </section>
+
+        <section id="childcare">
+            <h2>Childcare Services</h2>
+            <img src="https://images.unsplash.com/photo-1484820540004-14229fe36ca4" alt="Childcare services" class="section-image">
+            <p>Professional childcare options:</p>
+            <ul>
+                <li>Qualified Babysitters (24hr Notice)</li>
+                <li>Kids' Club Activities</li>
+                <li>Evening Babysitting Service</li>
+                <li>Child-Friendly Entertainment</li>
+            </ul>
+        </section>
+
+        <section id="safety">
+            <h2>Safety Guidelines for Children</h2>
+            <img src="https://images.unsplash.com/photo-1588075592446-265fd1e6e76f" alt="Child safety" class="section-image">
+            <p>Keeping your children safe:</p>
+            <ul>
+                <li>Pool Safety Rules</li>
+                <li>Child-Proofing Services</li>
+                <li>Emergency Procedures</li>
+                <li>First Aid Facilities</li>
+            </ul>
+        </section>
+
+        <a href="https://g.page/review" class="review-button" id="reviewButton">
+            Review Us, or We'll Tell Future Guests You Snored.
+        </a>
+
+        <a href="guestguide.html" class="back-button">Back to Guide</a>
+    </div>
+
+    <script>
+        const reviewMessages = [
+            "Review Us, or We'll Tell Future Guests You Snored.",
+            "Write a Review—We Promise Not to Judge Your Netflix Choices.",
+            "Leave a Review, or We'll Assume You Stole the Towels.",
+            "Your Review Could End World Hunger (Just Kidding, But It Helps Us).",
+            "Help Us Out—We Need the Stars More Than NASA.",
+            "Leave a Review—It's the Least You Can Do After the Free Soap.",
+            "Write a Review, or We'll Tell the Chef You Didn't Like Breakfast.",
+            "Review Us, or We'll Assume You Took the Mini Shampoo Too.",
+            "Your Review Could Save Puppies. Okay, Not Really, but It'll Save Our SEO."
+        ];
+
+        window.onload = function() {
+            const reviewButton = document.getElementById('reviewButton');
+            const randomMessage = reviewMessages[Math.floor(Math.random() * reviewMessages.length)];
+            reviewButton.textContent = randomMessage;
+        }
+    </script>
+</body>
+</html> 

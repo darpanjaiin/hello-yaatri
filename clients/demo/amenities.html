@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hidden Gems & Amenities - Guest Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/guide-pages.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Hidden Gems & Amenities</h1>
+
+        <section id="pool">
+            <h2>Poolside Paradise & Lounges</h2>
+            <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf" alt="Luxury pool area" class="section-image">
+            <p>Our infinity pool offers breathtaking views and perfect relaxation:</p>
+            <ul>
+                <li>Open daily from 7 AM to 10 PM</li>
+                <li>Heated to perfect temperature</li>
+                <li>Poolside service available</li>
+                <li>Private cabanas for rent</li>
+            </ul>
+        </section>
+
+        <section id="fitness">
+            <h2>The Fitness Hub – Your Space to Energize</h2>
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48" alt="Modern fitness center" class="section-image">
+            <p>State-of-the-art equipment and facilities available 24/7:</p>
+            <ul>
+                <li>Latest cardio and strength equipment</li>
+                <li>Personal training available</li>
+                <li>Yoga and meditation space</li>
+                <li>Fresh towels and water service</li>
+            </ul>
+        </section>
+
+        <section id="spa">
+            <h2>Spa Secrets & Relaxation Spots</h2>
+            <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874" alt="Luxurious spa treatment room" class="section-image">
+            <p>Discover our award-winning spa treatments:</p>
+            <ul>
+                <li>Signature massage treatments</li>
+                <li>Aromatherapy sessions</li>
+                <li>Couples spa packages</li>
+                <li>Wellness consultations</li>
+            </ul>
+        </section>
+
+        <section id="dining">
+            <h2>On-Site Dining Delights to Try</h2>
+            <img src="https://images.unsplash.com/photo-1592861956120-e524fc739696" alt="Elegant restaurant setting" class="section-image">
+            <p>Multiple dining venues offering local and international cuisine:</p>
+            <ul>
+                <li>Fine dining restaurant</li>
+                <li>Casual café and bakery</li>
+                <li>Poolside bar and grill</li>
+                <li>24/7 room service menu</li>
+            </ul>
+        </section>
+
+        <section id="quiet-spots">
+            <h2>Hidden Corners for Quiet Moments</h2>
+            <img src="https://images.unsplash.com/photo-1582053433976-25c00369fc93" alt="Peaceful garden retreat" class="section-image">
+            <p>Discover our secret gardens and meditation spaces:</p>
+            <ul>
+                <li>Zen garden with water features</li>
+                <li>Reading nooks with ocean views</li>
+                <li>Meditation pavilion</li>
+                <li>Sunset viewing deck</li>
+            </ul>
+        </section>
+        <a href="https://g.page/review" class="review-button" id="reviewButton">
+            Review Us, or We'll Tell Future Guests You Snored.
+        </a>
+
+        <a href="guestguide.html" class="back-button">Back to Guide</a>
+    </div>
+
+    <script>
+        const reviewMessages = [
+            "Review Us, or We'll Tell Future Guests You Snored.",
+            "Write a Review—We Promise Not to Judge Your Netflix Choices.",
+            "Leave a Review, or We'll Assume You Stole the Towels.",
+            "Your Review Could End World Hunger (Just Kidding, But It Helps Us).",
+            "Help Us Out—We Need the Stars More Than NASA.",
+            "Leave a Review—It's the Least You Can Do After the Free Soap.",
+            "Write a Review, or We'll Tell the Chef You Didn't Like Breakfast.",
+            "Review Us, or We'll Assume You Took the Mini Shampoo Too.",
+            "Your Review Could Save Puppies. Okay, Not Really, but It'll Save Our SEO."
+        ];
+
+        window.onload = function() {
+            const reviewButton = document.getElementById('reviewButton');
+            const randomMessage = reviewMessages[Math.floor(Math.random() * reviewMessages.length)];
+            reviewButton.textContent = randomMessage;
+        }
+    </script>
+</body>
+</html> 

@@ -1,0 +1,231 @@
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.modal {
+    background: white;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    border-radius: 20px;
+    padding: 30px;
+    position: relative;
+    overflow-y: auto;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.modal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.modal-close:hover {
+    transform: rotate(90deg);
+}
+
+.modal-close::before,
+.modal-close::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background-color: #333;
+    border-radius: 1px;
+}
+
+.modal-close::before {
+    transform: rotate(45deg);
+}
+
+.modal-close::after {
+    transform: rotate(-45deg);
+}
+
+/* Enhanced Modal List Styles */
+.modal-list {
+    margin-top: 20px;
+}
+
+.list-item {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    background: white;
+}
+
+.list-item:hover {
+    background-color: #f8f8f8;
+    padding-left: 30px;
+    transform: scale(1.01);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    z-index: 1;
+}
+
+.list-item:active {
+    transform: scale(0.99);
+}
+
+.arrow {
+    color: #666;
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.list-item:hover .arrow {
+    transform: translateX(5px);
+    color: #ff5733;
+}
+
+/* Add a subtle highlight effect */
+.list-item::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background: #ff5733;
+    transform: scaleY(0);
+    transition: transform 0.2s ease;
+}
+
+.list-item:hover::after {
+    transform: scaleY(1);
+}
+
+/* Add animation for list items appearing */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.list-item {
+    animation: slideIn 0.3s ease forwards;
+    animation-delay: calc(var(--index) * 0.1s);
+    opacity: 0;
+}
+
+/* Enhance modal title */
+.modal h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    padding-right: 40px;
+    position: relative;
+    display: inline-block;
+}
+
+.modal h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #ff5733, transparent);
+}
+
+/* Prevent body scroll when modal is open */
+body.modal-open {
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .modal {
+        width: 95%;
+        padding: 20px;
+    }
+}
+
+/* Add these styles to your existing modal.css */
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-right: 10px;
+}
+
+.modal-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.review-button {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    background: #ff5733;
+    color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.review-button:hover {
+    background:  #ff5733;
+    transform: translateY(-2px);
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+    .modal-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .modal-buttons {
+        align-self: flex-end;
+    }
+
+    .review-button {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+} 
