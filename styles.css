@@ -147,7 +147,7 @@ body {
 }
 
 .contact-section h2 {
-    font-size: 2.5rem;
+    font-size: 0.8rem;
     margin-bottom: 3rem;
     color: var(--primary-color);
 }
@@ -526,7 +526,7 @@ html {
 }
 
 .testimonial h3 {
-    font-size: 1.5rem; /* Title size */
+    font-size: 1.0rem; /* Title size */
     margin-bottom: 1.5rem; /* Space below title */
 }
 
@@ -989,5 +989,11 @@ html {
         z-index: 100;
         display: block; /* Ensure visibility on desktop */
     }
+}
+
+.contact-info h2,
+.contact-info h3 {
+    font-size: 1.1rem; /* Adjusted size to be 10% bigger */
+    margin-bottom: 0.5rem; /* Adjust margin for spacing */
 }
  
