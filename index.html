@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Yaatri - Smart Digital Guidebook for Properties</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.6.3/lottie.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="assets/logo.png" alt="Hello Yaatri Logo">
+            </div>
+            <div class="nav-buttons">
+                <a href="/demo" class="btn-demo">Book a demo</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>
+                Love at First Stay.<br> 
+                Proven by <span id="typing-animation"></span>
+            </h1>
+            <div id="lottie-animation" style="width: 100%; height: 400px;"></div>
+            <button class="shimmer-btn btn-primary" id="contact-btn">Get in touch</button>
+            <div class="demo-prompt">
+                Get your Digital Guidebook now!
+            </div>
+        </section>
+
+        <!-- Minimalistic Floating Contact Card -->
+        <div class="floating-contact-card">
+            <h2>Contact Us</h2>
+            <div class="contact-icons">
+                <a href="tel:+918999915037" class="contact-icon" title="Call Us">
+                    📱
+                </a>
+                <a href="mailto:acadarpanjaindsj@gmail.com" class="contact-icon" title="Email Us">
+                    📧
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        var animation = lottie.loadAnimation({
+            container: document.getElementById('lottie-animation'), // the DOM element that will contain the animation
+            renderer: 'svg', // render as SVG
+            loop: true, // loop the animation
+            autoplay: true, // start playing the animation immediately
+            path: 'https://lottie.host/b28b9ec1-e9e7-4466-ab27-e8ff467a30f8/zoDQmLZjdT.json' // the path to the animation json
+        });
+
+        const typingElement = document.getElementById('typing-animation');
+
+        const typingAnimation = (textArray, index = 0) => {
+            const text = textArray[index];
+            typingElement.innerHTML = ''; // Clear previous text
+            let i = 0;
+
+            const type = () => {
+                if (i < text.length) {
+                    typingElement.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, 200); // Adjust typing speed here
+                } else {
+                    setTimeout(() => {
+                        index = (index + 1) % textArray.length; // Cycle through words
+                        typingAnimation(textArray, index);
+                    }, 2000); // Pause before typing next word
+                }
+            };
+
+            type();
+        };
+
+        typingAnimation(['Reviews', 'Ratings']); // Start typing animation
+    </script>
+</body>
+</html> 
