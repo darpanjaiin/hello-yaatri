@@ -483,7 +483,7 @@ html {
     max-width: 800px; /* Limit width */
     width: 100%; /* Full width */
     display: flex; /* Flexbox for layout */
-    gap: 3rem; /* Space between form and testimonial */
+    gap: 6rem; /* Space between form and testimonial */
     margin: 0 auto; /* Center the container */
 }
 
@@ -500,7 +500,7 @@ html {
 }
 
 .form-group {
-    margin-bottom: 1.5rem; /* Increased spacing between fields */
+    margin-bottom: 1.0rem; /* Increased spacing between fields */
 }
 
 .form-group input {
@@ -532,7 +532,7 @@ html {
     font-weight: 500;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 100%; /* Full width */
+    width: 25%; /* Full width */
 }
 
 .submit-btn:hover {
@@ -546,7 +546,7 @@ html {
 
 .testimonial h3 {
     font-size: 1.5rem; /* Title size */
-    margin-bottom: 0.5rem; /* Space below title */
+    margin-bottom: 1.5rem; /* Space below title */
 }
 
 .testimonial p {
@@ -558,12 +558,13 @@ html {
     display: flex;
     align-items: center;
     gap: 0.5rem; /* Space between avatar and text */
+    margin-top: 1rem; /* Space above the author section */
 }
 
 .author-avatar {
-    width: 80px; /* Increased size for zoom effect */
-    height: 80px; /* Increased size for zoom effect */
-    border-radius: 50%; /* Circular avatar */
+    width: 160px; /* Increased size for zoom effect */
+    height: 160px; /* Increased size for zoom effect */
+    border-radius: 100%; /* Circular avatar */
 }
 
 .author-info {
@@ -573,6 +574,8 @@ html {
 
 .author-name {
     font-weight: bold; /* Bold name */
+    margin-top: 0.5rem; /* Space above the name */
+    margin-bottom: 0.5rem; /* Space below the name */
 }
 
 .author-title {
@@ -593,7 +596,7 @@ html {
 
     .testimonial {
         margin-top: 1rem; /* Space above testimonial */
-        margin-bottom: 2rem; /* Space below testimonial */
+        margin-bottom: 3rem; /* Space below testimonial */
 
     }
 }
@@ -621,7 +624,7 @@ html {
 }
 
 .company-logo {
-    height: 30px;
+    height: 60px;
     margin-bottom: 1.5rem;
 }
 
