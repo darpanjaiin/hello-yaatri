@@ -318,4 +318,116 @@ body {
 .btn-primary, .shimmer-btn, .contact-icon {
     cursor: pointer; /* Pointer cursor for buttons and icons */
 }
+
+/* Updated and Enhanced Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+    }
+
+    .logo img {
+        width: 40%; /* Adjusted logo size for mobile */
+    }
+
+    .hero {
+        padding: 1rem;
+        white-space: normal; /* Allow text wrapping on mobile */
+    }
+
+    .hero h1 {
+        font-size: 2.5rem; /* Smaller font size for mobile */
+        letter-spacing: -1px;
+        white-space: normal; /* Allow text wrapping */
+        line-height: 1.2;
+        margin-bottom: 1rem;
+    }
+
+    .hero h1 span {
+        font-size: 2.5rem; /* Match h1 size */
+    }
+
+    #lottie-animation {
+        height: 300px; /* Smaller height for mobile */
+        margin-top: -20px; /* Adjusted margin */
+    }
+
+    .shimmer-btn, .btn-primary {
+        padding: 0.8rem 1.5rem; /* Slightly smaller padding */
+        font-size: 0.9rem;
+    }
+
+    .btn-demo {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .floating-contact-card {
+        bottom: 10px;
+        right: 10px;
+        padding: 0.8rem;
+        max-width: 90%; /* Prevent card from being too wide */
+        margin: 0 auto;
+    }
+
+    .floating-contact-card h2 {
+        font-size: 1.2rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .contact-icons {
+        gap: 1rem;
+    }
+
+    .contact-icon {
+        font-size: 1.5rem;
+    }
+
+    .demo-prompt {
+        font-size: 0.9rem;
+        margin: 0 1rem;
+    }
+}
+
+/* Additional breakpoint for very small devices */
+@media (max-width: 380px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero h1 span {
+        font-size: 2rem;
+    }
+
+    #lottie-animation {
+        height: 250px;
+    }
+
+    .floating-contact-card {
+        padding: 0.6rem;
+    }
+
+    .contact-icon {
+        font-size: 1.3rem;
+    }
+}
+
+/* Fix for iOS Safari viewport height issue */
+@supports (-webkit-touch-callout: none) {
+    .hero {
+        min-height: -webkit-fill-available;
+    }
+}
+
+/* Ensure smooth scrolling on all devices */
+html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent content overflow */
+* {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
  
