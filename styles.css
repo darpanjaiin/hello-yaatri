@@ -689,4 +689,63 @@ html {
     margin: 1rem; /* Add margin for spacing */
     z-index: 1000; /* Ensure it appears above other content */
 }
+
+.footer {
+    background-color: #ffffff; /* White background */
+    padding: 1rem 1rem; /* Padding for spacing */
+    text-align: center; /* Center align text */
+    border-top: 1px solid #e0e0e0; /* Top border for separation */
+}
+
+.footer-container {
+    display: flex; /* Flexbox for layout */
+    justify-content: space-between; /* Space between items */
+    align-items: center; /* Center items vertically */
+    margin-bottom: 1rem; /* Space below the container */
+}
+
+.footer-info {
+    text-align: left; /* Align text to the left */
+}
+
+.footer-info p {
+    margin: 0.2rem 0; /* Space between paragraphs */
+    color: var(--secondary-color); /* Secondary color */
+}
+
+.footer-links {
+    text-align: right; /* Align links to the right */
+}
+
+.footer-links a {
+    text-decoration: none; /* Remove underline */
+    color: var(--primary-color); /* Primary color */
+    margin: 0 1rem; /* Space between links */
+}
+
+.footer-links a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+.footer-note {
+    font-size: 0.9rem; /* Smaller font size */
+    color: var(--secondary-color); /* Secondary color */
+    margin-top: 1rem; /* Space above note */
+}
+
+.footer-logo {
+    width: 150px; /* Adjust the size as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 1rem; /* Space below the logo */
+}
+
+.author-link {
+    color: inherit; /* Use the current text color */
+    text-decoration: none; /* Remove underline */
+}
+
+.author-link:hover {
+    text-decoration: underline; /* Underline on hover */
+    color: #007BFF; /* Change color on hover (adjust as needed) */
+}
  
