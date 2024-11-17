@@ -28,6 +28,9 @@
                 Love at First Stay.<br> 
                 Proven by <span id="typing-animation"></span>
             </h1>
+            <div class="notifications-container">
+                <div class="notification-wrapper"></div>
+            </div>
             <div id="lottie-animation" style="width: 100%; height: 400px;"></div>
             <button class="shimmer-btn btn-primary" id="contact-btn">Get in touch</button>
             <div class="demo-prompt">
@@ -38,8 +41,8 @@
         <section id="demo-form" class="demo-form-section">
             <div class="form-container">
                 <div class="form-left">
-                    <h2>Schedule a Demo</h2>
-                    <p>Submit your details, and our team will reach out to you.</p>
+                    <h2>Contact us-</h2>
+                    <p>Contact us—it’s easier than finding the TV remote in your guest’s room.</p>
                     <form action="https://formspree.io/f/xgvezwre" method="POST">
                         <input type="hidden" name="_next" value="https://your-website.com/thanks.html">
                         <div class="form-group">
@@ -116,6 +119,106 @@
             event.preventDefault(); // Prevent default button behavior
             document.getElementById('demo-form').scrollIntoView({ behavior: 'smooth' }); // Scroll to the form
         }
+
+        // Notification System
+        const notifications = [
+            {
+                title: "Perfect Stay!",
+                message: "Stunning property with an amazing guidebook—5 stars!",
+                icon: "🌟"
+            },
+            {
+                title: "Loved Every Moment!",
+                message: "Guidebook answered everything. Property exceeded expectations!",
+                icon: "❤️"
+            },
+            {
+                title: "Incredible Hospitality!",
+                message: "Cozy rooms and detailed guidebook. Everything well planned!",
+                icon: "🏡"
+            },
+            {
+                title: "Spotless Experience!",
+                message: "Clean property, comprehensive guidebook. Perfect stay!",
+                icon: "✨"
+            },
+            {
+                title: "Seamless Stay!",
+                message: "Complete guidebook, perfect property. Just what we needed!",
+                icon: "🏆"
+            },
+            {
+                title: "Guidebook Win!",
+                message: "Guest called your guidebook 'a lifesaver'!",
+                icon: "🌟"
+            },
+            {
+                title: "New Review Alert!",
+                message: "Your property is making waves with another 5-star review!",
+                icon: "⭐"
+            },
+            {
+                title: "Guest Feedback",
+                message: "Amazing stay, will definitely return!",
+                icon: "💬"
+            }
+        ];
+
+        function createNotification(notification) {
+            const wrapper = document.querySelector('.notification-wrapper');
+            const notificationEl = document.createElement('div');
+            notificationEl.className = 'notification';
+            
+            notificationEl.innerHTML = `
+                <div class="notification-icon">${notification.icon}</div>
+                <div class="notification-content">
+                    <div class="notification-title">${notification.title}</div>
+                    <div class="notification-message">${notification.message}</div>
+                </div>
+            `;
+            
+            wrapper.appendChild(notificationEl);
+            
+            // Remove notification after animation
+            setTimeout(() => {
+                notificationEl.remove();
+            }, 2500);
+        }
+
+        function showRandomNotification() {
+            const notification = notifications[Math.floor(Math.random() * notifications.length)];
+            createNotification(notification);
+        }
+
+        // Add this new code for scroll handling
+        let notificationInterval;
+        
+        function handleScroll() {
+            const heroSection = document.querySelector('.hero');
+            const heroBottom = heroSection.getBoundingClientRect().bottom;
+            
+            if (heroBottom > 0) {
+                // We're still in the hero section, start notifications if not already started
+                if (!notificationInterval) {
+                    showRandomNotification();
+                    notificationInterval = setInterval(showRandomNotification, 4000);
+                }
+            } else {
+                // We've scrolled past hero section, clear notifications
+                if (notificationInterval) {
+                    clearInterval(notificationInterval);
+                    notificationInterval = null;
+                }
+            }
+        }
+
+        // Add scroll event listener
+        window.addEventListener('scroll', handleScroll);
+
+        // Initialize notifications
+        setTimeout(() => {
+            handleScroll(); // Initial check
+        }, 1000);
     </script>
     <script src="script.js"></script>
 
