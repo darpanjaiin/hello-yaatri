@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Hello Yaatri</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: white;
+            font-family: 'Space Mono', monospace;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
+
+        .logo {
+            height: 40px;
+        }
+
+        .home-btn {
+            background: #ff4500;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .pricing-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+        }
+
+        .pricing-card {
+            background: #f8f8f8;
+            border-radius: 12px;
+            padding: 32px;
+            width: 300px;
+        }
+
+        .pricing-card h2 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .price {
+            font-size: 24px;
+            margin: 16px 0;
+        }
+
+        .features {
+            list-style: none;
+            padding: 0;
+            margin: 24px 0;
+        }
+
+        .features li {
+            margin: 12px 0;
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .features li::before {
+            content: "✓";
+            color: currentColor;
+        }
+
+        .start-btn {
+            background: #111;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            width: 100%;
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        /* Middle card styling */
+        .pricing-card:nth-child(2) {
+            background: #111;
+            color: white;
+        }
+
+        .pricing-card:nth-child(2) .features li {
+            color: white;
+        }
+
+        .pricing-card:nth-child(2) .start-btn {
+            background: #ffd700;
+            color: #111;
+        }
+
+        .bottom-text {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .bottom-text h2 {
+            font-size: 24px;
+            font-weight: 500;
+            margin: 0 0 8px;
+        }
+
+        .bottom-text p {
+            color: #666;
+            margin: 0;
+        }
+
+        @media (max-width: 1024px) {
+            .pricing-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 16px;
+            }
+
+            .pricing-card {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        .payment-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 16px;
+            z-index: 1001;
+            max-width: 300px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .payment-modal h2 {
+            font-size: 18px;
+            font-weight: 500;
+            margin: 0 0 16px 0;
+            color: #111;
+        }
+
+        .qr-code {
+            width: 100%;
+            max-width: 200px;
+            margin: 12px auto;
+            display: block;
+        }
+
+        .upi-container {
+            background: #f8f8f8;
+            padding: 10px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 12px 0;
+            gap: 12px;
+        }
+
+        .upi-text {
+            color: #666;
+            font-size: 12px;
+            margin: 0;
+        }
+
+        .copy-btn {
+            background: #111;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 12px;
+        }
+
+        .scan-text {
+            color: #666;
+            font-size: 12px;
+            margin: 0;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+        }
+
+        .selected-plan {
+            margin-top: 16px;
+            font-weight: 500;
+        }
+
+        @media (max-width: 480px) {
+            .payment-modal {
+                padding: 16px;
+                width: 85%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <img src="assets/logo.png" alt="Hello Yaatri" class="logo">
+        <a href="index.html" class="home-btn">Home</a>
+    </header>
+
+    <div class="pricing-container">
+        <div class="pricing-card">
+            <h2>Monthly</h2>
+            <div class="price">₹99/month</div>
+            <ul class="features">
+                <li>Full Access to Guidebook</li>
+                <li>Support service</li>
+                <li>Regular Updates</li>
+                <li>One Review Trigger</li>
+            </ul>
+            <button class="start-btn">Start now</button>
+        </div>
+
+        <div class="pricing-card">
+            <h2>Annual</h2>
+            <div class="price">₹999/year</div>
+            <ul class="features">
+                <li>Everything in Monthly</li>
+                <li>Priority Support</li>
+                <li>Multiple review triggers</li>
+                <li>Save 16.66%</li>
+            </ul>
+            <button class="start-btn">Start now</button>
+        </div>
+
+        <div class="pricing-card">
+            <h2>Lifetime</h2>
+            <div class="price">₹1899</div>
+            <ul class="features">
+                <li>Everything in Annual</li>
+                <li>No Updates</li>
+                <li>Support Service</li>
+                <li>One-time Payment</li>
+            </ul>
+            <button class="start-btn">Start now</button>
+        </div>
+    </div>
+
+    <div class="bottom-text">
+        <h2>Select the perfect plan for your business</h2>
+        <p>You'll be notified once your payment is confirmed</p>
+    </div>
+
+    <div class="modal-overlay" id="modalOverlay"></div>
+    <div class="payment-modal" id="paymentModal">
+        <button class="close-modal" onclick="hidePaymentModal()">×</button>
+        <h2>CA Darpan Jain</h2>
+        <img src="assets/qr-code.jpg" alt="Payment QR Code" class="qr-code">
+        <div class="upi-container">
+            <p class="upi-text">UPI ID: darpanjaindsj@oksbi</p>
+            <button onclick="copyUpiId()" class="copy-btn">Copy UPI ID</button>
+        </div>
+        <p class="scan-text">Scan to pay with any UPI app</p>
+    </div>
+</body>
+<script>
+    function showPaymentModal() {
+        const overlay = document.getElementById('modalOverlay');
+        const modal = document.getElementById('paymentModal');
+        
+        overlay.style.display = 'block';
+        modal.style.display = 'block';
+        
+        // Trigger reflow
+        modal.offsetHeight;
+        
+        overlay.classList.add('active');
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function hidePaymentModal() {
+        const overlay = document.getElementById('modalOverlay');
+        const modal = document.getElementById('paymentModal');
+        
+        overlay.classList.remove('active');
+        modal.classList.remove('active');
+        
+        setTimeout(() => {
+            overlay.style.display = 'none';
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+        }, 300);
+    }
+
+    function copyUpiId() {
+        const upiId = 'darpanjaindsj@oksbi';
+        navigator.clipboard.writeText(upiId).then(() => {
+            const copyBtn = document.querySelector('.copy-btn');
+            copyBtn.classList.add('copied');
+            copyBtn.textContent = 'Copied!';
+            
+            setTimeout(() => {
+                copyBtn.classList.remove('copied');
+                copyBtn.textContent = 'Copy UPI ID';
+            }, 2000);
+        });
+    }
+
+    // Event Listeners
+    document.querySelectorAll('.start-btn').forEach(btn => {
+        btn.addEventListener('click', showPaymentModal);
+    });
+
+    document.getElementById('modalOverlay').addEventListener('click', hidePaymentModal);
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            hidePaymentModal();
+        }
+    });
+
+    // Prevent modal close when clicking inside modal
+    document.getElementById('paymentModal').addEventListener('click', function(event) {
+        event.stopPropagation();
+    });
+</script>
+</html> 
