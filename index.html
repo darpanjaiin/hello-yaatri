@@ -79,6 +79,20 @@
     </main>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get in touch buttons scroll functionality
+            const scrollToForm = (e) => {
+                e.preventDefault();
+                document.querySelector('#demo-form').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            };
+
+            // Add click listeners to both buttons
+            document.querySelector('#book-demo-btn').addEventListener('click', scrollToForm);
+            document.querySelector('#contact-btn').addEventListener('click', scrollToForm);
+        });
+
         var animation = lottie.loadAnimation({
             container: document.getElementById('lottie-animation'), // the DOM element that will contain the animation
             renderer: 'svg', // render as SVG
@@ -111,18 +125,6 @@
         };
 
         typingAnimation(['Reviews', 'Ratings']); // Start typing animation
-
-        // Show demo form on "Get in Touch" button click (blue button)
-        document.getElementById('book-demo-btn').onclick = function(event) {
-            event.preventDefault(); // Prevent default anchor behavior
-            document.getElementById('demo-form').scrollIntoView({ behavior: 'smooth' }); // Scroll to the form
-        }
-
-        // Show demo form on "Get in Touch" button click (black button)
-        document.getElementById('contact-btn').onclick = function(event) {
-            event.preventDefault(); // Prevent default button behavior
-            document.getElementById('demo-form').scrollIntoView({ behavior: 'smooth' }); // Scroll to the form
-        }
 
         // Notification System
         const notifications = [
