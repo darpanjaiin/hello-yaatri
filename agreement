@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Yaatri - Service Agreement</title>
+    <style>
+        .agreement-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .agreement-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .agreement-header h1 {
+            font-size: 2.5rem;
+            color: #111;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section {
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            border-radius: 16px;
+            background: #f8f9fa;
+            transition: all 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .section h2 {
+            font-size: 1.5rem;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .section-content {
+            color: #4a5568;
+            line-height: 1.7;
+        }
+
+        .section-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .section-content li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .section-content li:before {
+            content: "•";
+            color: #8B5CF6;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(217, 70, 239, 0.1) 100%);
+            border-left: 4px solid #8B5CF6;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        @media (max-width: 768px) {
+            .agreement-container {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+
+            .agreement-header h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="agreement-container">
+        <div class="agreement-header">
+            <h1>Hello Yaatri Service Agreement</h1>
+        </div>
+
+        <div class="section">
+            <h2>Key Terms and Conditions</h2>
+            <div class="section-content">
+                <div class="highlight-box">
+                    This agreement outlines the terms and conditions between Hello Yaatri and the Customer.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Customer Responsibilities</h2>
+            <div class="section-content">
+                <ul>
+                    <li>The Customer must provide accurate and up-to-date information.</li>
+                    <li>The Customer is responsible for reviewing the guidebook, as the reliability and accuracy of information lie with the property owner.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Services Provided by Hello Yaatri</h2>
+            <div class="section-content">
+                <ul>
+                    <li>Creation of digital guidebooks tailored to the Customer's property.</li>
+                    <li>Regular updates to the guidebook as and when required.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Limitation of Liability</h2>
+            <div class="section-content">
+                <ul>
+                    <li>Hello Yaatri's liability under this Agreement is limited to the amount paid by the Customer for the Services.</li>
+                    <li>Hello Yaatri is not responsible for indirect, incidental, or consequential damages arising from the use of the guidebook.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>License</h2>
+            <div class="section-content">
+                <div class="highlight-box">
+                    The Customer is granted a limited, non-transferable, and non-exclusive license to use the guidebook for the agreed property.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Entire Agreement</h2>
+            <div class="section-content">
+                <ul>
+                    <li>This Agreement constitutes the entire understanding between the Parties and supersedes all prior agreements, understandings, or representations, whether oral or written.</li>
+                    <li>Any modifications to this Agreement must be made in writing and signed by both Parties.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
